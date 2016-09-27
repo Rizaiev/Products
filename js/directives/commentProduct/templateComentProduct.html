@@ -1,0 +1,25 @@
+<div class="comments">
+
+    <div class="starRate">
+        <ul>
+            <li ><a  class='stars' data-vote="5"><span>5 </span></a></li>
+            <li ><a  class='stars' data-vote="4"><span>4 </span></a></li>
+            <li ><a  class='stars' data-vote="3"><span>3 </span></a></li>
+            <li><a   class='stars' data-vote="2"><span>2 </span></a></li>
+            <li ><a  class='stars' data-vote="1"><span>1 </span></a></li>
+        </ul>
+    </div>
+    <textarea name="comment" id="input_comment" cols="40" rows="2" ng-model="text">
+
+
+    </textarea>
+
+    <button ng-click="saveComment()" class="btn btn-info">Comment</button>
+    <span class="noautoriz">Please log in</span>
+    <h3>Reviews</h3>
+    <div ng-repeat="com in comment" class="comment">
+        <p><span class="name">{{com.created_by.username}}</span><span class="time"> at {{com.created_at}}</span></p>
+        <p> Rate: {{com.rate}}</p>
+        <p> Comment: {{com.text}}</p>
+    </div>
+</div><span></span>

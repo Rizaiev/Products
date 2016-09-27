@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Twitter">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap-3.2.0/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script type="application/javascript" src="bootstrap-3.2.0/dist/js/bootstrap.js"></script>
+    <script type="application/javascript" src="angular-1.5.7/angular.js"></script>
+
+</head>
+<body ng-controller="Ctrl">
+<div id="con">
+    <div id="container">
+        <div class="list_product">
+            <h1>
+                List of products
+            </h1>
+            <button id="log_in" ng-click="formLogin()">Log in</button>
+            <button id="sing_up" ng-click="formSignUp()">Sign up</button>
+            <span id="user_name">{{userName}}</span>
+        </div>
+        <product-list tovari="tovImg" ng-enter="pushTov" class="target_el"></product-list>
+
+        <div style="clear: both"></div>
+        <hr>
+        <target-product value="res"></target-product>
+        <comments comment="comment" product="res" token="token" rate="rate" post-commet="pushTov"></comments>
+
+    </div>
+
+</div>
+
+
+<!--Авторизяция-->
+
+<div class="window">
+
+
+    <form class="form-horizontal form_sign_up" role="form">
+        <h3>Sign up</h3>
+        <div class="form-group">
+            <label for="input" class="col-sm-3 control-label">Login</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="input" placeholder="Login" ng-model="log">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="pas">
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="submit" class="btn btn-default" ng-click="signUp()">Sign UP</button>
+            </div>
+
+            <div class=" col-sm-5">
+                <button type="submit" class="btn btn-default" ng-click="signUpCancel()">Cancel</button>
+            </div>
+        </div>
+        <p class="has-error">User with such username already exists</p>
+    </form>
+
+
+    <form class="form-horizontal form_log_in" role="form">
+        <h3>Log In</h3>
+        <div class="form-group">
+            <label for="inputLogin" class="col-sm-3 control-label">Login</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputLogin" placeholder="Login" ng-model="login">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                       ng-model="password">
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="submit" class="btn btn-default" ng-click="logIn()">Log IN</button>
+            </div>
+
+            <div class=" col-sm-5">
+                <button type="submit" class="btn btn-default" ng-click="logInCancel()">Cancel</button>
+            </div>
+        </div>
+        <p class="has-error2">Username or password invalid</p>
+    </form>
+</div>
+
+
+<script src="js/index.js"></script>
+<script src="js/directives/product/product.js"></script>
+<script src="js/directives/targetProduct/targetProduct.js"></script>
+<script src="js/directives/commentProduct/comentProduct.js"></script>
+<script src="js/servises.js"></script>
+</body>
+</html>
